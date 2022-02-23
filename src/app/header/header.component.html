@@ -1,0 +1,23 @@
+<nav
+  class="navbar"
+  (scroll)="onscroll()"
+  [ngClass]="navbarfixed ? 'fixed' : 'nofixed'"
+>
+  <div class="container">
+    <div class="logo">Logo</div>
+    <ul class="nav">
+      <li>
+        <a href="#" (click)="onSelect('home')">Home</a>
+      </li>
+      <li>
+        <a href="#" (click)="onSelect('news')">News</a>
+      </li>
+      <li>
+        <a href="#" (click)="onSelect('about')">About</a>
+      </li>
+      <li>
+        <a href="#" (click)="onSelect('contact')">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
