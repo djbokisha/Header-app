@@ -29,3 +29,54 @@ p{
     width: 0%;
 
 }
+
+.slide{
+    width: 400px;
+    height: 300px;
+    background-color: lightblue;
+    text-align: center;
+    margin-top: 10%;
+    animation: slideMe .7s ease-in;
+    border-radius: 5%;
+    border: 1px solid black;
+}
+
+.slide img{
+    margin-top: 10%;
+    height: 100px;
+    width: 150px;
+
+}
+
+
+@keyframes slideMe{
+
+    0%{
+        transform: skewX(53deg) translateX(-300px);
+        opacity: 0;
+
+    }
+    60%{
+        transform: translateX(0px);
+    }
+    62%{
+        transform: skewX(0deg) translateX(30px);
+        opacity: 0.5;
+    }
+    70%{
+        transform: skew(-20deg);
+    }
+    80%{
+        transform: skew(0deg) translate(0);
+        opacity: 1;
+    }
+    90%{
+        transform: skew(-5deg);
+
+    }
+    100%{
+        transform: skew(0deg);
+        
+    }
+}
+
