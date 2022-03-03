@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, } from '@angular/forms';
+import { DataServiceService } from 'src/app/services/data-service.service';
 import { nameValidator } from './name.validator';
 
 @Component({
@@ -13,7 +14,8 @@ export class ContactComponent implements OnInit {
 
   
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private dataService: DataServiceService) {
     this.checkoutForm = this.formBuilder.group({
 
       name: ['', [Validators.required, nameValidator()]],
@@ -37,11 +39,15 @@ export class ContactComponent implements OnInit {
   }
 
   public submitForm(data: string) {
+
     console.log(data);
     if(this.checkoutForm.valid){
       window.alert('not valid!');
       return
     }
+    this.dataService.changeMessage(this.checkoutForm.value)
+
+
   }
 
 };
