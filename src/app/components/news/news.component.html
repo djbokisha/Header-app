@@ -19,6 +19,7 @@
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
+        <button (click)="onClick()" class="btn btn-primary">click me</button>
       </div>
       <div class="slide">
         <img
@@ -30,7 +31,23 @@
           Some quick example text to build on the card title and make up the
           bulk of the card's content.
         </p>
+        <button (click)="onClick()" class="btn btn-primary">click me</button>
       </div>
+
+      <a href="#" (click)="onSelected()">
+      <div class="slide"
+        *ngFor="let cardEl of cards"
+
+        (cardsSelected)="onCardSelected(cardEl)"
+      >
+        <img src="{{cardEl.imagePath}}" alt="">
+        <h2>{{ cardEl.title }}</h2>
+        <p> {{ cardEl.description}}</p>
+        <button (click)="onClick()" class="btn btn-primary">click me</button>
+
+       
+    </div>
+       </a>
     </div>
   </div>
 
@@ -41,4 +58,12 @@
   >
     IDEMO
   </div>
+</div>
+<div [ngClass]="windowfixed ? 'window' : 'windowup'">
+  <app-info 
+  *ngIf="selectedCard"
+  ></app-info>
+
+
+  ZAVESA !!!
 </div>
