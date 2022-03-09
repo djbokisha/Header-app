@@ -1,28 +1,27 @@
 import { Component,EventEmitter,HostListener, Input, OnInit, Output } from '@angular/core';
 import { Card } from './card.model';
 
+interface karta {
+   imagePath: string;
+   title: string;
+   description: string;
+}
 @Component({
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.css']
 })
 export class NewsComponent implements OnInit {
-  @Output() cardWasSelected = new EventEmitter<Card>();
+  @Output() cardWasSelected = new EventEmitter<Number>();
   @Output() cardSelected = new EventEmitter<void>()
 
-  selectedCard: Card;
+  selectedCard: karta;
+  message = "hello World";
 
-  cards: Card [] = [
-    new Card("../../../assets/New-Blockchain-Network-TNC-Mainnet-Promises-To-Hit-300000-Transactions-Per-Second.jpeg","A Test ", "This is simply a test",),
-    new Card("../../../assets/New-Blockchain-Network-TNC-Mainnet-Promises-To-Hit-300000-Transactions-Per-Second.jpeg","Card title","Some quick example text to build on the card title and make up the bulk of the card's content."),
-    new Card("../../../assets/New-Blockchain-Network-TNC-Mainnet-Promises-To-Hit-300000-Transactions-Per-Second.jpeg","Card title","Some quick example text to build on the card title and make up the bulk of the card's content. 3"),
-    new Card("../../../assets/New-Blockchain-Network-TNC-Mainnet-Promises-To-Hit-300000-Transactions-Per-Second.jpeg","Card title","Some quick example text to build on the card title and make up the bulk of the card's content. 4")
+  cards: Array<any>
 
 
-  ]
-  onCardSelected(card: Card){
-    this.cardWasSelected.emit(card);
-  }
+ 
 
   navbarfixed:boolean = true;
 
@@ -44,16 +43,29 @@ export class NewsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.cards)
+
+
+  this.cards = [
+    {imagePath:"../../../assets/New-Blockchain-Network-TNC-Mainnet-Promises-To-Hit-300000-Transactions-Per-Second.jpeg", title: "title 1", description: "the card's content. 1"},
+    {imagePath:"../../../assets/New-Blockchain-Network-TNC-Mainnet-Promises-To-Hit-300000-Transactions-Per-Second.jpeg", title: "title 2", description: "the card's content. 2"},
+    {imagePath:"../../../assets/New-Blockchain-Network-TNC-Mainnet-Promises-To-Hit-300000-Transactions-Per-Second.jpeg", title: "title 3", description: "the card's content. 3"}
+
+
+  ]
+  this.selectedCard
+
   }
 
-  onClick(){
+  onClick(card: any){
     this.windowfixed = false;
+    this.selectedCard = card
   }
 
   onSelected(){
-    this.cardSelected.emit();
-
+    this.windowfixed = false;
+    console.log(this.cards.values)
   }
+
+ 
 
 }

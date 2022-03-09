@@ -1,6 +1,16 @@
 <p>info works!</p>
 
 <div>
-    <img src="" alt="">
+    <p>Say: {{ message}}</p>
     
+
+    <div class="slide"
+    *ngIf="selectedCard">
+    <img src="{{selectedCard?.imagePath}}" alt="">
+    <h2>{{ selectedCard?.title }}</h2>
+    <p> {{ selectedCard?.description}}</p>
+
+
+   </div>
+
 </div>

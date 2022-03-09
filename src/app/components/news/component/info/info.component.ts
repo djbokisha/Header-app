@@ -8,17 +8,23 @@ import { Card } from '../../card.model';
 })
 export class InfoComponent implements OnInit {
   @Input() cardEl : Card ;
+  @Input() message: string;
+  @Input() cards: Array<any>;
+  @Input() selectedCard: Card;
 
- cards: Card;
+  
+
+//  cards: Card;
   constructor() { }
-
   ngOnInit(): void {
 
-    console.log(this.cardEl)
+
   }
 
   saveCard(){
 
   }
+
+ 
 
 }
